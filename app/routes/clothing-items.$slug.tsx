@@ -2,6 +2,7 @@ import type { ActionFunction, LoaderFunctionArgs } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getClothingItem, deleteClothingItem } from "~/models/clothing-item.server";
+import { costPerWear } from "~/utils";
 
 export const loader = async ({
     params,
@@ -22,12 +23,15 @@ export const action: ActionFunction = async ({ request, params }) => {
 
 export default function ClothingItem() {
     const { item } = useLoaderData<typeof loader>();
+    if (!item) return null;
+
     return (
         <>
             <h1>
-                {item?.name}
+                {item.name}
             </h1>
-            <p>{item?.slug}</p>
+            <p>{item.slug}</p>
+            <p>{costPerWear(item)}</p>
             <form method="POST">
                 <button type="submit" value="delete" name="intent">Delete</button>
             </form>

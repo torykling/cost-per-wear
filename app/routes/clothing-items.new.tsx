@@ -1,12 +1,13 @@
 import { redirect, ActionFunctionArgs } from "@remix-run/node"
 import { prisma } from '~/db.server'
+import { dollarsToCents } from '~/utils'
 
 export const action = async ({ request }: ActionFunctionArgs) => {
     const form = await request.formData()
     const name = form.get('name') as string || '';
     const slug = name.replace(/[\s_]+/g, '-')
         .toLowerCase();
-    const priceCents = parseInt(form.get('priceCents') as string || '')
+    const priceCents = dollarsToCents(form.get('priceCents') as string || '')
 
     const fields = { name, slug, priceCents, wornCount: 0 }
 
@@ -28,7 +29,7 @@ export default function New() {
                 />
             </div>
             <div>
-                <label htmlFor='priceCents'>Cost</label>
+                <label htmlFor='priceCents'>Cost $</label>
                 <input
                     type='number'
                     name='priceCents'
