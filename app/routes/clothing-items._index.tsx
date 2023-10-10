@@ -17,6 +17,7 @@ export default function ClothingItems() {
                 {clothingItems.map(item => (
                     <Link
                         to={item.slug}
+                        key={item.slug}
                     >
                         {item.name}
                     </Link>
