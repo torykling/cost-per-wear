@@ -18,7 +18,7 @@ export const action = async ({ request }) => {
 
 export default function New() {
     const actionData = useActionData()
-    return <div>
+    return (<>
         <h1>New Clothing Item</h1>
         <form method='POST'>
             <div>
@@ -43,5 +43,5 @@ export default function New() {
                 Add
             </button>
         </form>
-    </div>
+    </>)
 }

@@ -13,11 +13,11 @@ export const loader = async ({
 export default function ClothingItem() {
     const { item } = useLoaderData<typeof loader>();
     return (
-        <main className="mx-auto max-w-4xl">
-            <h1 className="my-6 border-b-2 text-center text-3xl">
+        <>
+            <h1>
                 {item?.name}
             </h1>
             <p>{item?.slug}</p>
-        </main>
+        </>
     );
 }

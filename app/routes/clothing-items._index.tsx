@@ -10,7 +10,7 @@ export default function ClothingItems() {
     const { clothingItems } = useLoaderData<typeof loader>();
 
     return (
-        <main>
+        <>
             <h1>Wardrobe</h1>
             <Link to="/clothing-items/new">Add clothing item</Link>
             <ul>
@@ -23,6 +23,6 @@ export default function ClothingItems() {
                     </Link>
                 ))}
             </ul>
-        </main>
+        </>
     )
 }
