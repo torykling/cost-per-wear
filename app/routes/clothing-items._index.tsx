@@ -13,10 +13,10 @@ export default function ClothingItems() {
     return (
         <>
             <h1>Wardrobe</h1>
-            <Link to="/clothing-items/new">Add clothing item</Link>
+            <Link to="/clothing-items/new" className="btn">Add clothing item</Link>
             <ul>
                 {clothingItems.map(item => (
-                    <div key={item.slug}>
+                    <div key={item.slug} className="card">
                         <Link to={item.slug}>{item.name}</Link>
                         <p>cost per wear: {costPerWear(item)}</p>
                     </div>

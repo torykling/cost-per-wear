@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+ul {
+    list-style: none;
+}
+
+p {
+    margin: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background-color: #f4f4f4;
+    padding: 10px 30px;
+    text-transform: uppercase;
+}
+
+.navbar ul li a {
+    color: #000;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #333;
+    border-bottom: 1px solid #333;
+}
+
+.btn {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn:hover {
+    color: #fff;
+    background-color: darkgrey;
+    border-bottom: none;
+}
+
+.btn:disabled {
+    background-color: lightgrey;
+    cursor: not-allowed;
+}
+
+.btn-small {
+    padding: 8px;
+}
+
+.btn-delete {
+    background: darkred;
+    color: #fff;
+    border-color: darkred;
+    font-size: 13px;
+    padding: 5px 10px;
+}
+
+.btn-delete:hover {
+    background: rgb(117, 0, 0);
+    color: #fff
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    border: 1px solid black;
+    padding: 20px 50px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}

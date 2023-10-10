@@ -1,4 +1,3 @@
-import { cssBundleHref } from "@remix-run/css-bundle";
 import type { LinksFunction } from "@remix-run/node";
 import {
   Link,
@@ -10,10 +9,9 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import { ReactNode } from 'react';
+import globalStylesUrl from '~/styles/global.css'
 
-export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
-];
+export const links: LinksFunction = () => [{ rel: "stylesheet", href: globalStylesUrl }];
 
 export default function App() {
   return (
@@ -38,7 +36,7 @@ export default function App() {
 
 function Layout({ children }: { children?: ReactNode }) {
   return (<>
-    <nav>
+    <nav className="navbar">
       <Link to='/'>
         Cost Per Wear
       </Link>

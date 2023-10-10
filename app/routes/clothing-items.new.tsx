@@ -19,9 +19,9 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 export default function New() {
     return (<>
         <h1>New Clothing Item</h1>
-        <form method='POST'>
+        <form method='POST' className="card">
             <div>
-                <label htmlFor='name'>Item Name</label>
+                <label htmlFor='name'>Item Name </label>
                 <input
                     type='text'
                     name='name'
@@ -36,7 +36,7 @@ export default function New() {
                     id='priceCents'
                 />
             </div>
-            <button type='submit' >
+            <button type='submit' className="btn">
                 Add
             </button>
         </form>

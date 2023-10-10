@@ -1,6 +1,6 @@
 import type { ActionFunction, LoaderFunctionArgs } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, Link } from "@remix-run/react";
 import { getClothingItem, deleteClothingItem, updateClothingItem } from "~/models/clothing-item.server";
 import { costPerWear } from "~/utils";
 
@@ -32,22 +32,40 @@ export default function ClothingItem() {
 
     return (
         <>
-            <h1>
-                {item.name}
-            </h1>
-            <p>{item.slug}</p>
-            <p>{costPerWear(item)}</p>
-            <p>Worn {item.wornCount} times</p>
+            <div className="card">
+                <h1>
+                    {item.name}
+                </h1>
+                <p>{costPerWear(item)}</p>
+                <p>Worn {item.wornCount} times</p>
+            </div>
             <form method="POST">
-                <button type="submit" value="delete" name="intent">Delete</button>
-                <button type="submit"
+                <button
+                    type="submit"
+                    className="btn btn-delete"
+                    value="delete"
+                    name="intent"
+                >
+                    Delete
+                </button>
+                <button
+                    type="submit"
+                    className="btn btn-small"
                     value={item.wornCount - 1}
                     name="wornCount"
                     disabled={item.wornCount === 0}
-                >-
+                >
+                    -
                 </button>
-                update worn count
-                <button type="submit" value={item.wornCount + 1} name="wornCount">+</button>
+                Update worn count
+                <button
+                    type="submit"
+                    className="btn btn-small"
+                    value={item.wornCount + 1}
+                    name="wornCount"
+                >
+                    +
+                </button>
             </form>
         </>
     );
