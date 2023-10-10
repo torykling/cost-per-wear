@@ -1,38 +1,14 @@
-# Welcome to Remix!
+# Cost Per Wear
 
-- [Remix Docs](https://remix.run/docs)
+A tool for tracking value of your wardrobe. You can add items and update the number of times you've worn each item. Easily compare the value or cost per wear of each item in your closet.
 
-## Development
+## Stack
+This app is built with [Remix](https://remix.run/docs) using [Prisma](https://www.prisma.io/) as the ORM to interact with a SQLite database.
 
-From your terminal:
+## Running locally
+
+Clone the repo and run the dev script from your terminal:
 
 ```sh
 npm run dev
 ```
-
-This starts your app in development mode, rebuilding assets on file changes.
-
-## Deployment
-
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `remix build`
-
-- `build/`
-- `public/build/`
