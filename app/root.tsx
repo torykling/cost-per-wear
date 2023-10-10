@@ -9,6 +9,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { ReactNode } from 'react';
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
@@ -35,7 +36,7 @@ export default function App() {
   );
 }
 
-function Layout({ children }) {
+function Layout({ children }: { children?: ReactNode }) {
   return (<>
     <nav>
       <Link to='/'>

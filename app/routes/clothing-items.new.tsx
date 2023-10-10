@@ -1,13 +1,12 @@
-import { useActionData } from '@remix-run/react'
-import { redirect } from "@remix-run/node"
+import { redirect, ActionFunctionArgs } from "@remix-run/node"
 import { prisma } from '~/db.server'
 
-export const action = async ({ request }) => {
+export const action = async ({ request }: ActionFunctionArgs) => {
     const form = await request.formData()
-    const name = form.get('name');
+    const name = form.get('name') as string || '';
     const slug = name.replace(/[\s_]+/g, '-')
         .toLowerCase();
-    const priceCents = parseInt(form.get('priceCents'))
+    const priceCents = parseInt(form.get('priceCents') as string || '')
 
     const fields = { name, slug, priceCents, wornCount: 0 }
 
@@ -17,7 +16,6 @@ export const action = async ({ request }) => {
 }
 
 export default function New() {
-    const actionData = useActionData()
     return (<>
         <h1>New Clothing Item</h1>
         <form method='POST'>
@@ -27,7 +25,6 @@ export default function New() {
                     type='text'
                     name='name'
                     id='name'
-                    defaultValue={actionData?.fields?.name}
                 />
             </div>
             <div>
@@ -36,7 +33,6 @@ export default function New() {
                     type='number'
                     name='priceCents'
                     id='priceCents'
-                    defaultValue={actionData?.fields?.priceCents}
                 />
             </div>
             <button type='submit' >
